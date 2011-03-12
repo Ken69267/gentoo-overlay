@@ -15,7 +15,7 @@ HOMEPAGE="http://www.igniterealtime.org/projects/smack/index.jsp"
 SRC_URI="http://www.igniterealtime.org/builds/${PN}/${MY_P}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="2.2" #check api compatibility
+SLOT="3.1"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE=""
 
