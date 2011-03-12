@@ -22,7 +22,8 @@ IUSE=""
 COMMON_DEP="dev-java/xpp3
 		dev-java/commons-logging
 		dev-java/jmf-bin
-		dev-java/jspeex"
+		dev-java/jspeex
+		dev-java/jstun"
 
 DEPEND=">=virtual/jdk-1.5
 	${COMMON_DEP}"
@@ -48,6 +49,9 @@ java_prepare() {
 	java-pkg_jar-from jmf-bin jmf.jar
 	java-pkg_jar-from jspeex
 
+	# jstun in merge directory
+	java-pkg_jar-from --into "${S}/jingle/extension/build/merge/" jstun
+
 	sed -i -e '/zipfileset/d' "${S}/build/build.xml" || die
 }
 
@@ -55,8 +59,7 @@ EANT_BUILD_XML="build/build.xml"
 EANT_EXTRA_ARGS="-Djavadoc.dest.dir=api"
 
 src_install() {
-
-	java-pkg_dojar *.jar
+	java-pkg_dojar target/*.jar
 
 	dohtml *.html
 
