@@ -68,5 +68,4 @@ src_install() {
 		java-pkg_dojavadoc api
 	}
 	use source && java-pkg_dosrc source/*
-
 }
